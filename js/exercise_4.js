@@ -76,3 +76,8 @@ featureLayer.on('ready', function(){
     	layer.on('click', clickHandler)
     });
 });
+
+map.on('click',function(e){
+	$('#info').fadeOut(200);
+  $('#info').empty();
+});
