@@ -77,7 +77,6 @@ featureLayer.on('ready', function(){
     });
 });
 
-map.on('click',function(e){
-	$('#info').fadeOut(200);
-  $('#info').empty();
-});
+map.on('click', function(){
+	$('#sidebar').fadeOut(200);
+})
