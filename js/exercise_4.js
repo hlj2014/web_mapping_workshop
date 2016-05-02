@@ -111,7 +111,7 @@ map.locate({setView:true})
 
 //Add directions
 
-var routeLine = L.mapbx.featureLayer().addTo(map);
+var routeLine = L.mapbox.featureLayer().addTo(map);
 
 function getDirections(frm, to){
  var jsonPayload = JSON.stringify({
