@@ -72,7 +72,7 @@ var clickHandler = function(e){
   
   var myGeoJSON = myLocation.getGeoJSON();
   
-  getDirections(myGeoJSON.geometry.coordinates, feature.geometry.coordinates);
+  getDirections(myGeoJSON.geometry.coordinates, featureLayer.geometry.coordinates);
   
 };
 
