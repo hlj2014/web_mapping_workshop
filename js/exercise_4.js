@@ -46,7 +46,7 @@ featureLayer.on('ready', function(){
 //})
 
 //Create click function + sidebar using jquery:
-var clickHandler = function(){
+var clickHandler = function(e){
 	$('#info').empty();
   
   	var feature = e.target.feature;
