@@ -89,8 +89,8 @@ map.on('click', function(){
 //Add viewer's location 
 
 var myLocation = L.mapbox.featureLayer().addTo(map);
-
 map.on('locationfound', function(e){
+  
 	myLocation.setGeoJSON({
     	type: 'Feature',
       	geometry: {
@@ -98,15 +98,16 @@ map.on('locationfound', function(e){
           coordinates: [ e.latlng.lng, e.latlng.lat ]
         },
       properties: {
-      	"title": "Here I am!",
-        "marker-color": "#ff8888",
-        "marker-symbol": "star"
+      	'title': 'Here I am!',
+        'marker-color': '#ff8888',
+        'marker-symbol': 'star'
       }
       
-    })
-})
+    });
+});
 
-map.locate({setView: True})
+map.locate({setView:true})
+
 
 //Add directions
 
@@ -123,9 +124,9 @@ function getDirections(frm, to){
  })
  $.ajax({
  	url: 'https://valhalla.mapzen.com/route',
-   data: {
-   	json: jsonPayload,
-   	api_key: 'valhalla-9YRnv7t'
+   	data: {
+   		json: jsonPayload,
+   		api_key: 'valhalla-9YRnv7t'
    }
  }).done(function(data){
 	var routeShape = polyline.decode(data.trip.legs[0].shape); 
