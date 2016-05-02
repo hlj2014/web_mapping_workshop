@@ -98,9 +98,9 @@ map.on('locationfound', function(e){
           coordinates: [ e.latlng.lng, e.latlng.lat ]
         },
       properties: {
-      	'title': 'Here I am!',
-        'marker-color': '#ff8888',
-        'marker-symbol': 'star'
+      	"title": 'Here I am!',
+        "marker-color": '#ff8888',
+        "marker-symbol": 'star'
       }
       
     });
