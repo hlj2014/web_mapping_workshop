@@ -17,7 +17,7 @@ map.setView([39, -96], 4);
 
 // Great, now we have a basic web map!
 
-//Adding my own data
+//Add my own data:
 
 var dataFileToAdd = 'data/restaurants.geojson';
 
@@ -25,6 +25,7 @@ var featureLayer = L.mapbox.featureLayer()
 	featureLayer.loadURL(dataFileToAdd);
 	featureLayer.addTo(map);
 
+//Add styling using json:
 featureLayer.on('ready', function(){
 	this.eachLayer(function(layer){
      	layer.setIcon(L.mapbox.marker.icon({
@@ -36,8 +37,36 @@ featureLayer.on('ready', function(){
     map.fitBounds(featureLayer.getBounds());
 })
 
-featureLayer.on('ready', function(){
-	this.eachLayer(function(layer){
-    	layer.bindPopup('Welcome to ' + layer.feature.properties.name)
+
+//Add popups:
+//featureLayer.on('ready', function(){
+//	this.eachLayer(function(layer){
+//    	layer.bindPopup('Welcome to ' + layer.feature.properties.name)
+//    })
+//})
+
+//Create click function + sidebar using jquery:
+var clickHandler = function(){
+	$('#info').empty();
+  
+  	var feature = e.target.feature;
+  
+  	$('#sidebar').fadeIn(400, function(){
+    	var info = '';
+      
+      	info += '<div>';
+      	info += '<h2>' + feature.properties.name + '</h2>';
+      	if(feature.properties.cuisine){
+          info += '<p>' + feature.properties.cuisine + '</p>';
+        }
+      	if(feature.properties.phone){ 
+          info += '<p>' + feature.properties.phone + '</p>';
+        }
+      	if(feature.properties.website){
+          info += '<p><a href="' + feature.properties.website '">' + feature.properties.website + '</a></p>'
+        }
+      	info += '</div>';
+      
+      $('#info').append(info);
     })
-})
+}
